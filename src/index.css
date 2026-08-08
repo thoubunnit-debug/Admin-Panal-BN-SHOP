@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f8f7f5;
+}
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #d8d6cc; border-radius: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+.font-display { font-family: 'Playfair Display', serif; }
+
+@keyframes pulseDot { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+.live-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+
+input[type=text],
+input[type=number],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=url],
+textarea,
+select {
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #1ab8e8 !important;
+  box-shadow: 0 0 0 3px rgba(26, 184, 232, 0.12);
+}
+
+.scrollbar-thin::-webkit-scrollbar { width: 6px; }
