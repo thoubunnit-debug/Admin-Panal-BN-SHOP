@@ -10,8 +10,10 @@ import { Field, inputCls } from '../ui/Field';
 const FALLBACK_IMAGE = 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600';
 
 // Files living in /public/img — Vite serves anything in /public at the site
-// root, so "Aviator Sunglasses.jpg" is reachable at /img/Aviator%20Sunglasses.jpg.
-// Add/remove filenames here whenever you add new photos to /public/img.
+// root. We prefix with import.meta.env.BASE_URL so the path resolves
+// correctly both locally (base "/") and on GitHub Pages
+// (base "/Admin-Panal-BN-SHOP/"). Add/remove filenames here whenever you
+// add new photos to /public/img.
 const LIBRARY_IMAGES = [
   'Aviator Sunglasses.jpg',
   'Brimmed Cap.jpg',
@@ -28,7 +30,7 @@ const LIBRARY_IMAGES = [
 ].map((filename) => ({
   filename,
   label: filename.replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' '),
-  src: `/img/${encodeURIComponent(filename)}`,
+  src: `${import.meta.env.BASE_URL}img/${encodeURIComponent(filename)}`,
 }));
 
 export function emptyProduct() {
